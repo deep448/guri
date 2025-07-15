@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gurcharan Singh | Cinematographer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      height: 100vh;
+      background: linear-gradient(to right, #0d0d0d 50%, transparent 50%);
+    }
+    header img {
+      width: 60%;
+      height: 100vh;
+      object-fit: cover;
+    }
+    .intro {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #ffd700;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    nav {
+      background: #121212;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      gap: 2rem;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 2rem;
+    }
+    .companies ul {
+      list-style-type: none;
+    }
+    .companies li::before {
+      content: '🎬 ';
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .team-member {
+      text-align: center;
+    }
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 1s ease, opacity 1s ease;
+    }
+    #contact:hover form {
+      max-height: 1000px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .blink {
+      animation: blinkBorder 1.5s infinite;
+      border: 2px dashed #ffd700;
+    }
+    @keyframes blinkBorder {
+      0%, 100% { border-color: #ffd700; }
+      50% { border-color: transparent; }
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: #888;
+      padding: 2rem;
+      background-color: #1a1a1a;
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    #contact {
+      background: url('g4.jpg') center center / cover no-repeat;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+    }
+    #contact form {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    .contact-info {
+      margin-top: 1rem;
+      color: #ccc;
+    }
+    .contact-info a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #ccc;
+      white-space: nowrap;
+      animation: typing 4s steps(60, end), blink-caret 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #ccc; }
+    }
+	
+    .about-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .about-flex > div {
+      flex: 1 1 300px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="g2.jpg" alt="Cinematographer" />
+    <div class="intro">
+      <h1>Gurcharan Singh</h1>
+      <p>Cinematographer | Visual Storyteller</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#companies">Companies</a>
+   
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-flex">
+      <div>
+        <p class="typewriter" id="typewriterText"></p>
+      </div>
+      <div>
+        <img src="g1.jpg" alt="About Section Visual" class="fade-in" style="width: 100%; border-radius: 8px;" />
+      </div>
+    </div>
+  </section>
+<right>
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <ul>
+      <li>Understanding of frame rates, resolutions, and sensor formats</li>
+      <li>Knowledge of natural and artificial lighting</li>
+      <li>Creative use of shadows, contrast, and color temperature</li>
+      <li>Ability to light scenes for mood, tone, and continuity</li>
+      <li>Using the right lens for emotion, perspective, and storytelling</li>
+      <li>Understanding depth of field and focus pulling</li>
+      <li>Pre-visualizing final look while shooting</li>
+      <li>Basic to advanced color grading knowledge in DaVinci Resolve or similar</li>
+    </ul>
+  </section></right>
+
+  <section id="companies" class="companies">
+    <h2 class="section-title">Companies I've Worked With</h2>
+    <ul>
+      <li>Folking Films</li>
+      <li>Shutterdown</li>
+      <li>Asia Films</li>
+      <li>Motion Picture Films</li>
+      <li>Mishti Visuals Films</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="text" name="name" class="blink" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" />
+    </form>
+    <div class="contact-info">
+      <p>📞 Call / WhatsApp: <a href="tel:+918700766343">+91 8700766343</a></p>
+      <p>📧 Email: <a href="mailto:guribhamlot777@gmail.com">guribhamlot777@gmail.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gurcharan Singh | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const text = "I tell stories through light, lens, and motion. With a deep passion for visual storytelling, I specialize in crafting cinematic visuals that elevate emotion and narrative.";
+    let i = 0;
+    const speed = 30;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriterText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
