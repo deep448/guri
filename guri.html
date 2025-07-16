@@ -4,29 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gurcharan Singh | Cinematographer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
+
     body {
       background-color: #0d0d0d;
       color: #ffffff;
       line-height: 1.6;
     }
+
     header {
       display: flex;
       height: 100vh;
       background: linear-gradient(to right, #0d0d0d 50%, transparent 50%);
     }
+
     header img {
       width: 60%;
       height: 100vh;
       object-fit: cover;
     }
+
     .intro {
       width: 40%;
       display: flex;
@@ -34,16 +38,19 @@
       justify-content: center;
       padding: 2rem;
     }
+
     .intro h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       margin-bottom: 0.5rem;
       color: #ffd700;
     }
+
     .intro p {
       font-size: 1.2rem;
       color: #ccc;
     }
+
     nav {
       background: #121212;
       display: flex;
@@ -51,70 +58,72 @@
       padding: 1rem;
       gap: 2rem;
     }
+
     nav a {
       color: #ffffff;
       text-decoration: none;
       font-weight: bold;
     }
+
     section {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 3rem auto;
       padding: 0 2rem;
     }
+
     .section-title {
-      font-size: 2rem;
+      font-size: 2.4rem;
       margin-bottom: 1rem;
       color: #ccc;
+      text-align: left;
+      animation: fadeIn 1.5s ease-in-out;
     }
-    ul {
-      list-style-type: disc;
-      margin-left: 2rem;
-    }
-    .companies ul {
-      list-style-type: none;
-    }
-    .companies li::before {
-      content: '🎬 ';
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    .about-flex {
+      display: flex;
+      flex-wrap: wrap;
       gap: 2rem;
+      align-items: flex-start;
+      justify-content: space-between;
     }
-    .team-member {
-      text-align: center;
+
+    .about-text {
+      flex: 1 1 500px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #ddd;
+      animation: fadeIn 2s ease-in-out;
     }
-    .team-member img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 0.5rem;
+
+    .about-img {
+      flex: 1 1 400px;
+      max-width: 500px;
     }
+
+    .about-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      .about-text, .about-img {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+    }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-      transition: max-height 1s ease, opacity 1s ease;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 2rem;
+      border-radius: 10px;
     }
-    #contact:hover form {
-      max-height: 1000px;
-      opacity: 1;
-      pointer-events: auto;
-    }
+
     input, textarea {
       padding: 0.75rem;
       background: #1a1a1a;
@@ -122,20 +131,14 @@
       border: 1px solid #444;
       border-radius: 5px;
     }
+
     input[type="submit"] {
       background: #ffd700;
       color: #000;
       font-weight: bold;
       cursor: pointer;
     }
-    .blink {
-      animation: blinkBorder 1.5s infinite;
-      border: 2px dashed #ffd700;
-    }
-    @keyframes blinkBorder {
-      0%, 100% { border-color: #ffd700; }
-      50% { border-color: transparent; }
-    }
+
     footer {
       text-align: center;
       margin-top: 4rem;
@@ -143,60 +146,87 @@
       padding: 2rem;
       background-color: #1a1a1a;
     }
+
     .fade-in {
       opacity: 0;
       animation: fadeIn 2s ease-in-out forwards;
     }
+
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    #contact {
-      background: url('g4.jpg') center center / cover no-repeat;
-      padding: 3rem 2rem;
-      border-radius: 8px;
+
+    .typewriter::after {
+      content: '|';
+      animation: blink-caret 1s step-end infinite;
+      margin-left: 5px;
+      color: #ffd700;
     }
-    #contact form {
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 2rem;
-      border-radius: 10px;
+
+    @keyframes blink-caret {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
+
     .contact-info {
       margin-top: 1rem;
       color: #ccc;
     }
+
     .contact-info a {
       color: #fff;
       text-decoration: underline;
     }
-    .typewriter {
+
+    /* === SLIDER SECTION STYLES === */
+    .slider-container {
+      width: 90%;
+      max-width: 700px;
+      margin: 2rem auto;
       overflow: hidden;
-      border-right: .15em solid #ccc;
-      white-space: nowrap;
-      animation: typing 4s steps(60, end), blink-caret 0.75s step-end infinite;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      position: relative;
+      background-color: #111;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #ccc; }
-    }
-	
-    .about-flex {
+
+    .slider {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
+      transition: transform 0.6s ease-in-out;
     }
-    .about-flex > div {
-      flex: 1 1 300px;
+
+    .slide {
+      min-width: 100%;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 0.8rem;
+      font-size: 1rem;
+      color: #ffd700;
+      background: #1a1a1a;
+    }
+
+    @media (max-width: 768px) {
+      .slide img {
+        max-height: 250px;
+      }
+      .caption {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <img src="g2.jpg" alt="Cinematographer" />
     <div class="intro">
@@ -206,25 +236,23 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
+    <a href="#about">About me</a>
     <a href="#skills">Skills</a>
     <a href="#companies">Companies</a>
-   
+    <a href="#shoots">Shoots</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about-flex">
-      <div>
-        <p class="typewriter" id="typewriterText"></p>
-      </div>
-      <div>
-        <img src="g1.jpg" alt="About Section Visual" class="fade-in" style="width: 100%; border-radius: 8px;" />
+      <div class="about-text typewriter" id="typewriterText"></div>
+      <div class="about-img">
+        <img src="g1.jpg" alt="About Section Visual" />
       </div>
     </div>
   </section>
-<right>
+
   <section id="skills">
     <h2 class="section-title">Skills</h2>
     <ul>
@@ -237,7 +265,7 @@
       <li>Pre-visualizing final look while shooting</li>
       <li>Basic to advanced color grading knowledge in DaVinci Resolve or similar</li>
     </ul>
-  </section></right>
+  </section>
 
   <section id="companies" class="companies">
     <h2 class="section-title">Companies I've Worked With</h2>
@@ -250,10 +278,38 @@
     </ul>
   </section>
 
+  <section id="shoots">
+    <h2 class="section-title">Shoots!</h2>
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide">
+          <img src="wedding.jpg" alt="Wedding Shoot">
+          <p class="caption">Wedding Shoot</p>
+        </div>
+        <div class="slide">
+          <img src="birthday.jpg" alt="Birthday Shoot">
+          <p class="caption">Birthday Shoot</p>
+        </div>
+        <div class="slide">
+          <img src="song.jpg" alt="Song Shoot">
+          <p class="caption">Song Shoot</p>
+        </div>
+        <div class="slide">
+          <img src="post-wedding.jpg" alt="Post-wedding Shoot">
+          <p class="caption">Post-wedding Shoot</p>
+        </div>
+        <div class="slide">
+          <img src="bb.jpg" alt="Baby Shower Shoot">
+          <p class="caption">Baby Shower Shoot</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <h2 class="section-title">Contact Me</h2>
     <form action="https://formspree.io/f/yourFormID" method="POST">
-      <input type="text" name="name" class="blink" placeholder="Your Name" required />
+      <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <input type="submit" value="Send Message" />
@@ -269,7 +325,7 @@
   </footer>
 
   <script>
-    const text = "I tell stories through light, lens, and motion. With a deep passion for visual storytelling, I specialize in crafting cinematic visuals that elevate emotion and narrative.";
+    const text = "I tell stories through light, lens, and motion. With a deep passion for visual storytelling, I specialize in crafting cinematic visuals that elevate both emotion and narrative. My approach blends creative instinct with technical precision — every shot I capture is composed with purpose, whether it’s the warmth of a wedding moment, the drama of a music video, or the energy of a commercial. I believe that every frame has a story to tell, and I strive to make every scene feel timeless.";
     let i = 0;
     const speed = 30;
     function typeWriter() {
@@ -280,6 +336,17 @@
       }
     }
     window.onload = typeWriter;
+
+    // Image Slider
+    const slider = document.getElementById("slider");
+    const slides = slider.querySelectorAll(".slide");
+    let index = 0;
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+    setInterval(nextSlide, 3000); // 3s interval
   </script>
+
 </body>
 </html>
